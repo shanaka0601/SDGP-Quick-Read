@@ -1,0 +1,202 @@
+:root{
+    --primary-color: #d6a2e8;
+    --glass-bg: rgba(255, 255, 255, 0.88);
+    --glass-border: rgba(255, 255, 255, 0.2);
+    --text-color: #efeeee;
+    --accent-color: #33d6ff;
+    --transition-speed: 0.4s;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+    scroll-behavior: smooth;
+}
+
+body{
+    background: linear-gradient(rgba(42, 35, 35, 0.7), rgba(43, 38, 38, 0.8)), url("/images/background3.png") center/cover no-repeat fixed;
+    color: var(--text-color);
+    overflow-x: hidden;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+::-webkit-scrollbar{
+    width: 10px;
+}
+
+::-webkit-scrollbar-track{
+    background: #1a1a1a;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #555;
+    border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--primary-color);
+}
+
+h1, h2, h3 {
+    font-weight: 600;
+    letter-spacing: 0.5px;
+}
+
+.section h1,
+.section h2,
+#team h1,
+.feature-card h3 {
+    color: var(--accent-color);
+}
+
+.section h1, .section h2, .feature-card h3 {
+    text-shadow: 0 2px 8px rgba(0,0,0,0.45);
+}
+
+.section {
+    padding: 100px 10%;
+    text-align: center;
+    position: relative;
+    z-index: 1;
+}
+
+.navbar{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 5%;
+    position: fixed;
+    width: 90%;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1000;
+    background: linear-gradient(rgba(83, 82, 82, 0.6), rgba(100, 99, 99, 0.6)), url('/images/background2.jpg') center/cover no-repeat;
+}
+
+.nav-logo img{
+    height: 40px;
+    vertical-align: middle;
+}
+
+.nav-links ul {
+    display: flex;
+    list-style: none;
+    gap: 25px;
+}
+
+.nav-links a{
+    text-decoration: none;
+    color: white;
+    font-weight: 500;
+    font-size: 1rem;
+    transition: color 0.3s;
+    position: relative;
+}
+
+.nav-links a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -5px;
+    left: 0;
+    background-color: var(--primary-color);
+    transition: width 0.3s;
+}
+
+.nav-links a:hover::after {
+    width: 100%;
+}
+
+.nav-links a:hover {
+    color: var(--primary-color);
+}
+
+.hamburger {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+    z-index: 1001;
+}
+
+.hamburger div {
+    width: 25px;
+    height: 3px;
+    background-color: white;
+    margin: 4px;
+    transition: 0.4s;
+}
+
+.hamburger.active div:nth-child(1) { 
+    transform: rotate(-45deg) translate(-5px, 6px); 
+}
+
+.hamburger.active div:nth-child(2) { 
+    opacity: 1; 
+}
+
+.hamburger.active div:nth-child(3) { 
+    transform: rotate(45deg) translate(-5px, -6px); 
+}
+
+/* =============================
+   HERO SECTION
+============================= */
+
+.hero{
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding-top: 80px;
+}
+
+.hero-logo{
+    width: 180px;
+    margin-bottom: 20px;
+    animation: float 6s ease-in-out infinite;
+    filter: drop-shadow(0 0 15px rgba(255,255,255,0.2));
+}
+
+.hero-title {
+    font-size: 3.5rem;
+    background: linear-gradient(to right, #fff, #d6a2e8);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 15px;
+    text-shadow: 0 0 30px rgba(214, 162, 232, 0.3);
+}
+
+.hero-subtitle {
+    font-size: 1.2rem;
+    opacity: 1;
+    max-width: 600px;
+    margin: 0 auto 30px;
+    line-height: 1.6;
+}
+
+.hero-btn {
+    padding: 15px 40px;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    border-radius: 50px;
+    color: white;
+    font-size: 18px;
+    font-weight: 600;
+    cursor: pointer;
+    backdrop-filter: blur(5px);
+    transition: all 0.3s ease;
+    box-shadow: 0 0 15px rgba(214, 162, 232, 0.2);
+}
+
+.hero-btn:hover {
+    background: var(--primary-color);
+    color: #1a1a1a;
+    transform: translateY(-3px) scale(1.05);
+    box-shadow: 0 0 25px rgba(214, 162, 232, 0.6);
+}
