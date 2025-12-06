@@ -20,3 +20,26 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         }
     });
 });
+
+document.addEventListener('DOMContentLoaded', () => {
+    const video = document.getElementById('demoVideo');
+    
+    if (video) {
+        const videoObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                // If 50% of the video is visible, play it
+                if (entry.isIntersecting) {
+                    video.play().catch(error => {
+                        // Browsers might block autoplay if not muted
+                        console.log("Autoplay blocked:", error);
+                    });
+                } else {
+                    // Pause if scrolled out of view to save resources
+                    video.pause();
+                }
+            });
+        }, { threshold: 0.5 }); // Trigger when 50% visible
+
+        videoObserver.observe(video);
+    }
+});
